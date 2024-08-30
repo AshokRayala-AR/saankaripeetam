@@ -46,6 +46,8 @@ function SetPassword() {
       console.error("Error submitting form:", error);
     }
   };
+
+  
   function togglepassword() {
     setShowPassword(!showPassword);
   }

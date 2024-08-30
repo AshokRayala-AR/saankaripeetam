@@ -152,21 +152,6 @@ function SignUpCreate() {
             </div>
           </form>
         </div>
-
-        <div className="flex items-center w-full">
-          <hr className="flex-1 border-t-2 border-gray-300" />
-          <span className="mx-4 font-semibold text-xl text-[#666]">OR</span>
-          <hr className="flex-1 border-t-2 border-gray-300" />
-        </div>
-
-        <motion.button type="submit"  whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
-                whileTap={{ scale: 0.95, transition: { duration: 0.1 } }} className=" border-2 border-[#FFA12B] w-full flex justify-center items-center gap-4 rounded-3xl p-2 shadow-xl">
-          <img src={googleicon} alt="googleicon" className="w-6" />
-          <p className="text-xl text-[#363636] font-bold">Continue with Google</p> 
-
-
-        </motion.button>
-
       </div>
     </div>
   );
