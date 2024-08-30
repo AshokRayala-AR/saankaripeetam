@@ -16,6 +16,10 @@ const schema = z.object({
     .email("Invalid email address"),
   name: z.string().min(3, "Name must be atleast 3 letters"),
   password: z.string().min(6, "must contain 6 characters"),
+  phonenum: z
+    .string()
+    .length(10, "Phone number must contain 10 digits")
+    .regex(/^\d{10}$/, "Phone number must be digits only"),
 });
 
 type FormFields = z.infer<typeof schema>;
@@ -34,7 +38,7 @@ function SignUpCreate() {
   const onSubmit = async (data: FormFields) => {
     try {
       console.log(data);
-      const response = await axios.post('http://localhost:3000/user/signup', data);
+      const response = await axios.post('https://jsonplaceholder.typicode.com/posts', data);
       console.log("Response:", response);
 
       reset();
@@ -83,6 +87,26 @@ function SignUpCreate() {
                 {errors.name && (
                   <p className="text-red-600 text-xs absolute -bottom-4 left-1">
                     {errors.name.message}
+                  </p>
+                )}
+              </div>
+
+              <div className="flex flex-col gap-1 relative">
+                <label
+                  htmlFor="phonenum"
+                  className="text-lg font-normal text-[#666]"
+                >
+                  Phone Number
+                </label>
+                <input
+                  {...register("phonenum")}
+                  placeholder="Enter your Number"
+                  id="Phonenum"
+                  className="border-2 outline-none border-slate-400 focus:border-[#FFA12B]  rounded-lg p-2 bg-transparent"
+                />
+                {errors.phonenum && (
+                  <p className="text-red-600 text-xs absolute -bottom-4 left-1">
+                    {errors.phonenum.message}
                   </p>
                 )}
               </div>
