@@ -34,31 +34,31 @@ function CartItems() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center p-24 gap-12">
+    <div className="flex flex-col justify-center items-center p-8 md:p-16 lg:p-24 gap-12">
 
 
       <div className="w-full flex flex-col gap-4">
         {cartItems.map((item, idx) => (
           <div
             key={idx}
-            className="flex w-full p-2 border border-slate-200 h-full md:gap-6 gap-3 items-center justify-between rounded-md shadow-md"
+            className="flex flex-col md:flex-row w-full p-2  border-slate-200 h-full md:gap-6 gap-3 items-center justify-between rounded-md shadow-md"
           >
-            <div className="flex items-center justify-start w-2/6 h-full gap-4">
-              <div className="w-1/4 h-full">
+            <div className="flex items-center justify-start w-full md:w-2/6 h-full md:gap-4">
+              <div className="w-1/3 md:w-2/4 lg:w-1/4 h-full">
                 <img
                   src={item.img}
                   alt="addeditem"
                   className="rounded-lg w-full "
                 />
               </div>
-              <div className="flex w-3/6 items-start justify-start">
-                <p className="md:text-2xl font-semibold text-md">{item.title}</p>
+              <div className="flex md:w-3/6 items-start justify-start">
+                <p className="text-lg lg:text-2xl font-semibold text-md">{item.title}</p>
               </div>
             </div>
-
-            <div className="flex flex-col w-2/6 items-center justify-center">
+  
+            <div className="flex flex-col w-full md:w-3/6 lg:w-2/6  items-center justify-center">
               <div className="flex justify-between gap-8 items-center w-full">
-                <div className="flex justify-between items-center w-3/5">
+                <div className="flex  justify-around lg:justify-between items-center w-full lg:w-3/5">
                   <div className="flex justify-center border border-slate-500 px-2 rounded-full shadow-md">
                     <div className="flex flex-col items-center justify-center">
                       <img
@@ -68,11 +68,11 @@ function CartItems() {
                         onClick={() => handleQuantityDecrement(item.id)}
                       />
                     </div>
-                    <div className="flex border-2 justify-center items-center">
+                    <div className="flex justify-center items-center">
                       <input
                         type="number"
                         value={item.quantity}  // Using item.quantity instead of item.qty
-                        className="focus:outline-none appearance-none text-center w-12"
+                        className="focus:outline-none appearance-none text-center ml-4 w-8 lg:w-12"
                         readOnly
                       />
                     </div>
@@ -86,7 +86,7 @@ function CartItems() {
                     </div>
                   </div>
                   <div>
-                    <p className="text-lg">MRP: {item.price}/-</p>
+                    <p className="text-md lg:text-lg">MRP: {item.price}/-</p>
                   </div>
                 </div>
 

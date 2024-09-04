@@ -34,17 +34,20 @@ function SignUpMain() {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex flex-col md:flex-row h-screen">
+      
+
       <div
-        className="w-3/6"
+        className="w-full md:w-3/6 h-1/5 md:h-full"
         style={{
           backgroundImage: `url(${signinimg})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
       ></div>
+      
 
-      <div className="flex flex-col w-3/6  justify-center items-center gap-6 p-24 ">
+      <div className="flex flex-col md:w-3/6  justify-center items-center gap-6 p-8 md:p-12 lg:p-24 ">
         <p className="text-3xl font-semibold">Sign Up</p>
 
         <div className="w-full flex flex-col gap-2">

@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 
 function EmptyCart() {
     return(
-        <div className="flex flex-col justify-center items-start gap-6 h-[60vh] p-24">
+        <div className="flex flex-col justify-center items-start gap-6 h-[60vh] p-8 md:p-16 lg:p-24">
 
             <div className="flex items-center gap-4">
-                <img src={cart} alt="cart" className="w-8" />
-                <p className="text-3xl font-medium">Your Cart is Currently Empty</p>
+                <img src={cart} alt="cart" className="w-6 md:w-8" />
+                <p className="text-lg md:text-2xl lg:text-3xl font-medium">Your Cart is Currently Empty</p>
             </div>
             <hr className="border-black border-t-4 w-full" />
 
