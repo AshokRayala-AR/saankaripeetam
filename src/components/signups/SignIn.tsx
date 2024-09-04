@@ -7,7 +7,7 @@ import axios from "axios";
 import { useState } from "react";
 import eyehide from "../../assets/svg/eyehide.svg";
 import eyeshow from "../../assets/svg/eyeshow.svg";
-import googleicon from "../../assets/svg/googleicon.svg"
+import googleicon from "../../assets/svg/googleicon.svg";
 
 const schema = z.object({
   email: z
@@ -20,7 +20,7 @@ const schema = z.object({
 
 type FormFields = z.infer<typeof schema>;
 
-function SignUpCreate() {
+function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
 
   const {
@@ -48,9 +48,9 @@ function SignUpCreate() {
   }
 
   return (
-    <div className="flex h-screen">
+    <div className="flex flex-col md:flex-row h-screen">
       <div
-        className="w-3/6 "
+        className="w-full md:w-3/6 h-1/5 md:h-full "
         style={{
           backgroundImage: `url(${signinimg})`,
           backgroundPosition: "center",
@@ -58,7 +58,7 @@ function SignUpCreate() {
         }}
       ></div>
 
-      <div className="flex flex-col w-3/6  justify-center items-center gap-6 p-24 ">
+      <div className="flex flex-col md:w-3/6  justify-center items-center gap-6 p-8 md:p-12 p-24 ">
         <p className="text-3xl font-semibold">Sign In</p>
 
         <div className="w-full flex flex-col gap-2">
@@ -157,4 +157,4 @@ function SignUpCreate() {
   );
 }
 
-export default SignUpCreate;
+export default SignIn;

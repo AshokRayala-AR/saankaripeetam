@@ -8,7 +8,6 @@ import { useState } from "react";
 import eyehide from "../../assets/svg/eyehide.svg";
 import eyeshow from "../../assets/svg/eyeshow.svg";
 
-
 const schema = z.object({
   email: z
     .string()
@@ -25,8 +24,7 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>;
 
 function SignUpCreate() {
-
-    const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     register,
@@ -38,23 +36,26 @@ function SignUpCreate() {
   const onSubmit = async (data: FormFields) => {
     try {
       console.log(data);
-      const response = await axios.post('https://jsonplaceholder.typicode.com/posts', data);
+      const response = await axios.post(
+        "https://jsonplaceholder.typicode.com/posts",
+        data
+      );
       console.log("Response:", response);
 
       reset();
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error("Error submitting form:", error);
     }
   };
 
   function togglepassword() {
-    setShowPassword (!showPassword)
+    setShowPassword(!showPassword);
   }
 
   return (
-    <div className="flex h-screen">
+    <div className="flex flex-col md:flex-row h-screen">
       <div
-        className="w-3/6 "
+        className="w-full md:w-3/6 h-1/5 md:h-full "
         style={{
           backgroundImage: `url(${signinimg})`,
           backgroundPosition: "center",
@@ -62,7 +63,7 @@ function SignUpCreate() {
         }}
       ></div>
 
-      <div className="flex flex-col w-3/6  justify-center items-center gap-6 p-24 ">
+      <div className="flex flex-col md:w-3/6 justify-center items-center gap-6 p-8 md:p-12 lg:p-24 ">
         <p className="text-3xl font-semibold">Create an account</p>
 
         <div className="w-full flex flex-col gap-2">
@@ -139,34 +140,48 @@ function SignUpCreate() {
                   Password
                 </label>
 
-
-                <div className="relative" >
- 
-                <input 
-                {...register("password")}
-                type={showPassword ? "text" : "password"}
-                placeholder="Enter Your Password"
-                id="password"
-                className="border-2 outline-none border-slate-400 focus:border-[#FFA12B]  w-full p-2 rounded-lg bg-transparent "  
-                             
-                />
-                <button type="button" onClick={togglepassword} className="absolute right-4 bottom-3.5 ">
-                    <img src={showPassword ? eyeshow : eyehide} alt="" className="w-4" />
-                </button>
+                <div className="relative">
+                  <input
+                    {...register("password")}
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter Your Password"
+                    id="password"
+                    className="border-2 outline-none border-slate-400 focus:border-[#FFA12B]  w-full p-2 rounded-lg bg-transparent "
+                  />
+                  <button
+                    type="button"
+                    onClick={togglepassword}
+                    className="absolute right-4 bottom-3.5 "
+                  >
+                    <img
+                      src={showPassword ? eyeshow : eyehide}
+                      alt=""
+                      className="w-4"
+                    />
+                  </button>
                 </div>
 
-
-                {errors.password && (<p className="text-red-600 text-xs absolute -bottom-4 left-1">{errors.password.message}</p>)}
+                {errors.password && (
+                  <p className="text-red-600 text-xs absolute -bottom-4 left-1">
+                    {errors.password.message}
+                  </p>
+                )}
               </div>
             </div>
 
             <p className="mt-4 ">
               By Signing Up, you agree to the{" "}
-              <a href="#" className="text-[#FFA12B] underline underline-offset-2">
+              <a
+                href="#"
+                className="text-[#FFA12B] underline underline-offset-2"
+              >
                 Terms of use
               </a>{" "}
               and{" "}
-              <a href="#" className="text-[#FFA12B] underline underline-offset-2">
+              <a
+                href="#"
+                className="text-[#FFA12B] underline underline-offset-2"
+              >
                 Privacy Policy
               </a>
             </p>
